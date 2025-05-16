@@ -5,22 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login AOBA</title>
     <link rel="stylesheet" href="style-login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="login-container">
       <div class="login-form">
         <img src="Imagens/logo.png" alt="Logo AOBA" class="logo" />
         <h1>Bem vindo</h1>
-        <form>
+        <form action="Dashboard.html">
           <label class="label-input" for="email">Usuário</label>
           <div class="input-wrapper">
-            <span class="icon">👤</span>
+            <span id="user" class="icon"
+              ><img src="Imagens/icon-user.png" width="18"
+            /></span>
             <input type="email" id="email" placeholder="@email.com" required />
           </div>
 
           <label class="label-input" for="senha">Senha</label>
           <div class="input-wrapper">
-            <span class="icon">🔒</span>
+            <span id="pass" class="icon"
+              ><img id="cadeado" src="Imagens/trancar.png" width="25"
+            /></span>
             <input type="password" id="senha" placeholder="senha" required />
           </div>
 
@@ -42,13 +52,24 @@
       <div class="login-image">
         <img src="Imagens/equipe.png" alt="Profissional da saúde" />
         <div class="quote">
-          <span class="quote-icon">“</span>
-          <p>
-            As estrelas mais brilhantes são produzidas nas noites mais escuras
-          </p>
-          <span class="quote-icon">”</span>
+          <div id="texto">
+            <img
+              src="Imagens/quote.png"
+              class="quote-img left-quote"
+              alt="Aspas decorativas"
+            />
+            <p id="texto-citacao">
+              As estrelas mais brilhantes são produzidas nas noites mais escuras
+            </p>
+            <img
+              src="Imagens/double-quotes.png"
+              class="quote-img right-quote"
+              alt="Aspas decorativas"
+            />
+          </div>
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
