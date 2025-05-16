@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Chocolate Classical Sans", "roboto";
 }
 
 body {
@@ -72,7 +72,7 @@ nav a:hover {
 .logo img {
   width: 70px;
   height: 70px;
-  margin-top: 5px;
+  margin-top: 18px;
   object-fit: contain;
 }
 
@@ -340,7 +340,6 @@ footer {
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   margin-top: 30px;
   margin-left: 20px;
-  margin-left: 5px;
 }
 
 .alerts h3 {
