@@ -180,6 +180,7 @@ header {
   border-radius: 8px;
   margin-bottom: 20px;
   margin-left: 20px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -339,6 +340,7 @@ footer {
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   margin-top: 30px;
   margin-left: 20px;
+  margin-left: 5px;
 }
 
 .alerts h3 {
