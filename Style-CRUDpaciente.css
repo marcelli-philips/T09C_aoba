@@ -142,18 +142,18 @@
     object-fit: contain;
   }
 
-.leito{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
+.Leito {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
 
-  .leito img{
-    width: 30px;
-    height: 30px;
-    object-fit: contain;
-  }
+.Leito img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
  
  .cadastroInterno{
     display: flex;
