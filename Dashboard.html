@@ -1,132 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style-dash.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap" rel="stylesheet">
- 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"
+    rel="stylesheet">
+
 </head>
+
 <body>
   <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
   <label for="menu-toggle" class="menu-toggle-label">☰</label>
-<aside>
-  <div class="logo">
-    <h2>Menu</h2>
-    <img src="Imagens/logo.png" alt="Logo AOBA">
-  </div>
-  <nav>
-    <div Class="Dash">
-      <a href="#">
-        <img src="Imagens/grafico-preditivo.png" alt="grafico">Dashboard
-      </a>
+  <aside>
+    <div class="logo">
+      <h2>Menu</h2>
+          <img src="imagens/logo1.png" alt="Logo AOBA">
+       
     </div>
-    <div Class="Relatorios">
-      <a href="#">
-        <img src="Imagens/caderno.png" alt="Relatorios">Relatórios
-      </a>
-    </div>
-    <div Class="Usuarios">
-      <a href="#">
-        <img src="Imagens/perfil-de-usuario.png" alt="user">Usuários
-      </a>
-    </div>
-    <div Class="Config">
-      <a href="#">
-        <img src="Imagens/engrenagem.png" alt="engrenagem">Configurações
-      </a>
-    </div>
-  </nav>
-</aside>
-<main>
-  <header>
-    <h1>Meu Dashboard</h1>
-    <span>Bem-vindo, Usuário</span>
-  </header>
-  
-  <section class="cards">
-  <div class="card">
-    <h3>Pacientes Internados</h3>
-    <p>78</p>
-  </div>
-  <div class="card">
-    <h3>Leitos Disponíveis</h3>
-    <p>22</p>
-  </div>
-  <div class="card">
-    <h3>Tempo Médio de Espera</h3>
-    <p>35 min</p>
-  </div>
-  <div class="card">
-    <h3>Ocupação UTI</h3>
-    <p>90%</p>
-  </div>
-  </section>
-  <section class="chart">
-    <h3>Indicadores Hospitalares</h3>
-    <div class="chart-grid">
-      <div class="chart-box">
-        <div class="pie-chart clinica"></div>
-        <p>Clínica Geral</p>   
-        <div class="chart-legend">
-          <span class="legend-color" style="background-color: #500084;"></span> Ativos
-          <span class="legend-color" style="background-color: #b152e9;"></span> Inativos
+    <nav>
+      <div Class="Dash">
+        <a href="Dashboard.html">
+          <img src="imgs/grafico-preditivo.png" alt="grafico">Dashboard
+        </a>
+      </div>
+      <div Class="CrudPaciente">
+        <a href="crud_paciente.html">
+          <img src="imgs/crudPaciente.png" alt="crudPaciente">Cadastro Paciente
+        </a>
+      </div>
+      <div Class="CrudInterno">
+        <a href="crud_interno">
+          <img src="imgs/crudInterno.png" alt="crudInterno">Cadastro Interno
+        </a>
+      </div>
+      <div Class="Usuarios">
+        <a href="#">
+          <img src="imgs/perfil-de-usuario.png" alt="user">Usuários
+        </a>
+      </div>
+      <div Class="Leito">
+        <a href="leito.html">
+          <img src="imgs/leito.png" alt="leito">Leito
+        </a>
+      </div>
+      <div Class="Config">
+        <a href="#">
+          <img src="imgs/engrenagem.png" alt="engrenagem">Configurações
+        </a>
+      </div>
+    </nav>
+  </aside>
+  <main>
+    <header>
+      <h1>Meu Dashboard</h1>
+      <span>Bem-vindo, Usuário</span>
+    </header>
+
+    <section class="cards">
+      <div class="card">
+        <h3>Pacientes Internados</h3>
+        <p>78</p>
+      </div>
+      <div class="card">
+        <h3>Leitos Disponíveis</h3>
+        <p>22</p>
+      </div>
+      <div class="card">
+        <h3>Tempo Médio de Espera</h3>
+        <p>35 min</p>
+      </div>
+      <div class="card">
+        <h3>Ocupação UTI</h3>
+        <p>90%</p>
+      </div>
+    </section>
+    <section class="chart">
+      <h3>Indicadores Hospitalares</h3>
+      <div class="chart-grid">
+        <div class="chart-box">
+          <div class="pie-chart clinica"></div>
+          <p>Clínica Geral</p>
+          <div class="chart-legend">
+              <span class="legend-color" style="background-color: #500084;"></span> Ativos
+              <span class="legend-color" style="background-color: #b152e9;"></span> Inativos
+          </div>
+        </div>
+        <div class="chart-box">
+          <div class="pie-chart pediatria"></div>
+          <p>Pediatria</p>
+          <div class="chart-legend">
+              <span class="legend-color" style="background-color: #500084;"></span> 0-5 anos
+            <span class="legend-color" style="background-color: #b152e9;"></span> 6-12 anos
+          </div>
+        </div>
+        <div class="chart-box">
+          <div class="pie-chart ortopedia"></div>
+          <p>Ortopedia</p>
+          <div class="chart-legend">
+              <span class="legend-color" style="background-color: #500084;"></span> Cirúrgicos
+              <span class="legend-color" style="background-color: #b152e9;"></span> Não cirúrgicos
+          </div>
+        </div>
+        <div class="chart-box">
+          <div class="pie-chart cardiologia "></div>
+          <p>Cardiologia</p>
+          <div class="chart-legend">
+              <span class="legend-color" style="background-color: #500084;"></span> Crônico
+              <span class="legend-color" style="background-color: #b152e9;"></span> Agudo
+          </div>
+        </div>
+        <div class="chart-box">
+          <div class="pie-chart uti"></div>
+          <p>UTI</p>
+          <div class="chart-legend">
+              <span class="legend-color" style="background-color: #500084;"></span> Crítico
+              <span class="legend-color" style="background-color: #b152e9;"></span> Estável
+          </div>
+        </div>
+        <div class="chart-box">
+          <div class="pie-chart outros"></div>
+          <p>Outros</p>
+          <div class="chart-legend">
+              <span class="legend-color" style="background-color: #500084;"></span> Pero vaz
+              <span class="legend-color" style="background-color: #b152e9;"></span> de caminha
+          </div>
         </div>
       </div>
-      <div class="chart-box">
-        <div class="pie-chart pediatria"></div>
-        <p>Pediatria</p>
-        <div class="chart-legend">
-          <span class="legend-color" style="background-color: #500084;"></span> 0-5 anos
-          <span class="legend-color" style="background-color: #b152e9;"></span> 6-12 anos
-        </div>
-      </div>
-      <div class="chart-box">
-        <div class="pie-chart ortopedia"></div>
-        <p>Ortopedia</p>
-        <div class="chart-legend">
-          <span class="legend-color" style="background-color: #500084;"></span> Cirúrgicos
-          <span class="legend-color" style="background-color: #b152e9;"></span> Não cirúrgicos
-        </div>
-      </div>
-      <div class="chart-box">
-        <div class="pie-chart cardiologia "></div>
-        <p>Cardiologia</p>
-        <div class="chart-legend">
-          <span class="legend-color" style="background-color: #500084;"></span> Crônico 
-          <span class="legend-color" style="background-color: #b152e9;"></span> Agudo
-        </div>
-      </div>
-      <div class="chart-box">
-        <div class="pie-chart uti"></div>
-        <p>UTI</p>
-        <div class="chart-legend">
-          <span class="legend-color" style="background-color: #500084;"></span> Crítico
-          <span class="legend-color" style="background-color: #b152e9;"></span> Estável 
-        </div>
-      </div>
-      <div class="chart-box">
-        <div class="pie-chart outros"></div>
-        <p>Outros</p>
-        <div class="chart-legend">
-          <span class="legend-color" style="background-color: #500084;"></span> Pero vaz
-          <span class="legend-color" style="background-color: #b152e9;"></span> de caminha
-        </div>
-      </div>
-    </div>
-  </section> 
-  <section class="alerts">
-    <h3>Alertas Atuais</h3>
-    <ul>
-      <li> <img src="Imagens/alerta.png" alt="alerta"> UTI com 90% de ocupação</li>
-      <li> <img src="Imagens/alerta.png" alt="alerta"> Estoque de sedativos baixo</li>
-      <li> <img src="Imagens/alerta.png" alt="alerta"> 2 leitos interditados na enfermaria</li>
-    </ul>
-  </section>
-  <footer>
-    © 2025 - AOBA
-  </footer>
-</main>
+    </section>
+    <section class="alerts">
+      <h3>Alertas Atuais</h3>
+      <ul>
+        <li> <img src="Imagens/alerta.png" alt="alerta"> UTI com 90% de ocupação</li>
+        <li> <img src="Imagens/alerta.png" alt="alerta"> Estoque de sedativos baixo</li>
+        <li> <img src="Imagens/alerta.png" alt="alerta"> 2 leitos interditados na enfermaria</li>
+      </ul>
+    </section>
+    <footer>
+      © 2025 - AOBA
+    </footer>
+  </main>
+  <script src="Dashboard.js"></script>
 </body>
+
 </html>
