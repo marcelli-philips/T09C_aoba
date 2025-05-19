@@ -128,6 +128,19 @@
     object-fit: contain;
   }
 
+.Leito {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.Leito img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
   .prescricao{
     display: flex;
     align-items: center;
