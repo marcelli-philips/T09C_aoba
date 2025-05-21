@@ -4,12 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="style-dash.css">
+  <title>Dashboard</title>
+ <link rel="stylesheet" href="style-dash.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"rel="stylesheet">
 
 </head>
 
@@ -24,7 +23,7 @@
     </div>
     <nav>
       <div Class="Dash">
-        <a href="Dashboard.html">
+        <a href="dashboard.html">
           <img src="imgs/grafico-preditivo.png" alt="grafico">Dashboard
         </a>
       </div>
@@ -38,9 +37,9 @@
           <img src="imgs/crudInterno.png" alt="crudInterno">Cadastro Interno
         </a>
       </div>
-      <div Class="Usuarios">
-        <a href="#">
-          <img src="imgs/perfil-de-usuario.png" alt="user">Usuários
+      <div Class="Prontuario">
+        <a href="Prontuario.html">
+          <img src="imgs/perfil-de-usuario.png" alt="user">Prontuário eletrônico
         </a>
       </div>
       <div Class="Leito">
@@ -58,7 +57,9 @@
   <main>
     <header>
       <h1>Meu Dashboard</h1>
-      <span>Bem-vindo, Usuário</span>
+      <span>Bem-vindo, Usuário
+        <span id="relogio" style="margin-left: 5px; font-weight: bold;"></span>
+      </span>
     </header>
 
     <section class="cards">
@@ -79,65 +80,36 @@
         <p>90%</p>
       </div>
     </section>
+
     <section class="chart">
       <h3>Indicadores Hospitalares</h3>
       <div class="chart-grid">
         <div class="chart-box">
-          <div class="pie-chart clinica"></div>
-          <p>Clínica Geral</p>
-          <div class="chart-legend">
-              <span class="legend-color" style="background-color: #500084;"></span> Ativos
-              <span class="legend-color" style="background-color: #b152e9;"></span> Inativos
-          </div>
+          <p>Distribuição de Pacientes por Severidade</p>
+          <canvas id="pacientes-por-severidade"></canvas>
         </div>
         <div class="chart-box">
-          <div class="pie-chart pediatria"></div>
-          <p>Pediatria</p>
-          <div class="chart-legend">
-              <span class="legend-color" style="background-color: #500084;"></span> 0-5 anos
-            <span class="legend-color" style="background-color: #b152e9;"></span> 6-12 anos
-          </div>
+          <p>Evolução de Consultas ao Longo do Tempo</p>
+          <canvas id="consultas-por-dia"></canvas>
         </div>
         <div class="chart-box">
-          <div class="pie-chart ortopedia"></div>
-          <p>Ortopedia</p>
-          <div class="chart-legend">
-              <span class="legend-color" style="background-color: #500084;"></span> Cirúrgicos
-              <span class="legend-color" style="background-color: #b152e9;"></span> Não cirúrgicos
-          </div>
+          <p>Consultas por Médico</p>
+          <canvas id="consultas-por-medico"></canvas>
         </div>
         <div class="chart-box">
-          <div class="pie-chart cardiologia "></div>
-          <p>Cardiologia</p>
-          <div class="chart-legend">
-              <span class="legend-color" style="background-color: #500084;"></span> Crônico
-              <span class="legend-color" style="background-color: #b152e9;"></span> Agudo
-          </div>
-        </div>
-        <div class="chart-box">
-          <div class="pie-chart uti"></div>
-          <p>UTI</p>
-          <div class="chart-legend">
-              <span class="legend-color" style="background-color: #500084;"></span> Crítico
-              <span class="legend-color" style="background-color: #b152e9;"></span> Estável
-          </div>
-        </div>
-        <div class="chart-box">
-          <div class="pie-chart outros"></div>
-          <p>Outros</p>
-          <div class="chart-legend">
-              <span class="legend-color" style="background-color: #500084;"></span> Pero vaz
-              <span class="legend-color" style="background-color: #b152e9;"></span> de caminha
-          </div>
+          <h2>Frequência de Exames Solicitados</h2>
+          <div id="nuvem-de-palavras"></div>
         </div>
       </div>
     </section>
+
     <section class="alerts">
       <h3>Alertas Atuais</h3>
+      <input type="text" id="buscaAlerta" placeholder="Buscar alerta..." onkeyup="filtrarAlertas()">
       <ul>
-        <li> <img src="Imagens/alerta.png" alt="alerta"> UTI com 90% de ocupação</li>
-        <li> <img src="Imagens/alerta.png" alt="alerta"> Estoque de sedativos baixo</li>
-        <li> <img src="Imagens/alerta.png" alt="alerta"> 2 leitos interditados na enfermaria</li>
+        <li> <img src="imgs/alerta.png" alt="alerta"> UTI com 90% de ocupação</li>
+        <li> <img src="imgs/alerta.png" alt="alerta"> Estoque de sedativos baixo</li>
+        <li> <img src="imgs/alerta.png" alt="alerta"> 2 leitos interditados na enfermaria</li>
       </ul>
     </section>
     <footer>
@@ -145,6 +117,8 @@
     </footer>
   </main>
   <script src="Dashboard.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.2/src/wordcloud2.min.js"></script>
 </body>
 
 </html>

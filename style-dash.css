@@ -30,6 +30,36 @@ aside h2 {
   font-size: 20px;
 }
 
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--cor-1);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.toggle-btn:hover {
+  background-color: var(--cor-4);
+  transform: scale(1.05);
+}
+
+aside.minimized {
+  width: 60px;
+}
+
+aside.minimized h2,
+aside.minimized nav a,
+aside.minimized .logo {
+  display: none;
+}
+
 nav div {
   margin-bottom: 10px;
 }
@@ -89,14 +119,14 @@ nav a:hover {
   object-fit: contain;
 }
 
-.Usuarios {
+.Prontuario {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
 }
 
-.Usuarios img {
+.Prontuario img {
   width: 30px;
   height: 30px;
   object-fit: contain;
@@ -238,7 +268,7 @@ header h1 {
 }
 
 .card p {
-  font-size: 24px;
+  font-size: 36px;
   color: #1e293b;
   margin-top: 10px;
 }
@@ -358,6 +388,7 @@ footer {
   margin-right: 5px;
 }
 
+
 .alerts {
   background-color: #fff;
   padding: 20px;
@@ -386,4 +417,9 @@ footer {
   width: 20px;
   height: 20px;
   object-fit: contain;
+}
+
+@keyframes piscar {
+  0%, 100% { color: red; }
+  50% { color: black; }
 }
