@@ -189,3 +189,4 @@ WordCloud(document.getElementById('nuvem-de-palavras'), {
     rotationSteps: 2,
     backgroundColor: '#ffe0e0'
 });
+

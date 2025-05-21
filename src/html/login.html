@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login AOBA</title>
-    <link rel="stylesheet" href="style-login.css" />
+    <link rel="stylesheet" href="/src/css/style-login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,13 +15,13 @@
   <body>
     <div class="login-container">
       <div class="login-form">
-        <img src="Imagens/logo.png" alt="Logo AOBA" class="logo" />
+        <img src="/src/img/logo.png" alt="Logo AOBA" class="logo" />
         <h1>Bem vindo</h1>
-        <form action="Dashboard.html">
+        <form action="/src/html/dashboard.html">
           <label class="label-input" for="email">Usuário</label>
           <div class="input-wrapper">
             <span id="user" class="icon"
-              ><img src="Imagens/icon-user.png" width="18"
+              ><img src="/src/img/icon-user.png" width="18"
             /></span>
             <input type="email" id="email" placeholder="@email.com" required />
           </div>
@@ -29,7 +29,7 @@
           <label class="label-input" for="senha">Senha</label>
           <div class="input-wrapper">
             <span id="pass" class="icon"
-              ><img id="cadeado" src="Imagens/trancar.png" width="25"
+              ><img id="cadeado" src="/src/img/trancar.png" width="25"
             /></span>
             <input type="password" id="senha" placeholder="senha" required />
           </div>
@@ -44,12 +44,12 @@
 
           <button type="submit">Entrar</button>
           <p class="register">
-            Ainda não tem uma conta? <a href="cadastro.html">Registrar</a>
+            Ainda não tem uma conta? <a href="/src/html/cadastro.html">Registrar</a>
           </p>
         </form>
       </div>
       <div class="login-image">
-        <img src="Imagens/equipe.jpg" alt="Profissional da saúde" />
+        <img src="/src/img/equipe.jpg" alt="Profissional da saúde" />
         <div class="quote">
           <div id="texto">
             <p id="texto-citacao">
@@ -59,6 +59,6 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="/src/script/login.js"></script>
   </body>
 </html>
