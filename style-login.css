@@ -7,18 +7,25 @@
   --preto: #000000;
   --branco: #ffffff;
   --cinza: #555;
+  --fonte: "Chocolate Classical Sans";
+}
+
+.chocolate-classical-sans-regular {
+  font-family: "Chocolate Classical Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: var(--fonte);
 }
 
 body {
   height: 100vh;
-  background: var(--branco);
+  background-color: var(--cor-1);
 }
 
 .login-container {
@@ -27,7 +34,6 @@ body {
 }
 
 .login-form {
-  background-color: var(--cor-1);
   color: var(--branco);
   flex: 1;
   display: flex;
@@ -64,6 +70,8 @@ label {
   border-radius: 12px;
   padding: 10px;
   margin-bottom: 20px;
+  max-height: 50.4px;
+  box-shadow: 4px 10px 4.5px rgba(0, 0, 0, 0.2);
 }
 
 .input-wrapper .icon {
@@ -75,6 +83,20 @@ label {
   outline: none;
   flex: 1;
   font-size: 1em;
+  height: 1.9em;
+}
+
+.input-wrapper #user {
+  margin-left: 3px;
+  margin-top: 5px;
+}
+
+.input-wrapper #pass {
+  margin-top: 5px;
+}
+
+.input-wrapper input::placeholder {
+  font-style: italic;
 }
 
 .label-input {
@@ -113,7 +135,7 @@ button {
   font-weight: bold;
   color: var(--cor-1);
   cursor: pointer;
-  box-shadow: 0 4px 4 var(--preto);
+  box-shadow: 4px 10px 4.5px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease;
 }
 
@@ -138,7 +160,7 @@ button:hover {
   overflow: hidden;
 }
 
-.login-image img {
+.login-image > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -147,18 +169,30 @@ button:hover {
 .quote {
   position: absolute;
   bottom: 40px;
-  left: 20px;
+  left: 30px;
   background-color: var(--cor-2);
   color: var(--cor-1);
   padding: 20px 25px;
-  border-radius: 20px;
+  border-radius: 130px 0 80px 0px;
   width: 70%;
   font-size: 1em;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 10px 4.5px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
-.quote-icon {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: var(--cor-2);
+#texto {
+  flex-direction: row;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.quote-img {
+  width: 28px;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .login-image {
+    display: none;
+  }
 }
