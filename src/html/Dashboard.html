@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
- <link rel="stylesheet" href="style-dash.css">
+ <link rel="stylesheet" href="/src/css/style-dash.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"rel="stylesheet">
@@ -16,37 +16,37 @@
     <button id="toggle-menu" class="toggle-btn">☰</button>
     <div class="logo">
       <h2>Menu</h2>
-          <img src="imagens/logo1.png" alt="Logo AOBA">
+          <img src="/src/img/logo1.png" alt="Logo AOBA">
     </div>
     <nav>
       <div Class="Dash">
         <a href="dashboard.html">
-          <img src="imgs/grafico-preditivo.png" alt="grafico">Dashboard
+          <img src="/src/img/grafico-preditivo.png" alt="grafico">Dashboard
         </a>
       </div>
       <div Class="CrudPaciente">
-        <a href="crud_paciente.html">
-          <img src="imgs/crudPaciente.png" alt="crudPaciente">Cadastro Paciente
+        <a href="crud-paciente.html">
+          <img src="/src/img/crudPaciente.png" alt="crudPaciente">Cadastro Paciente
         </a>
       </div>
       <div Class="CrudInterno">
-        <a href="crud_interno.html">
-          <img src="imgs/crudInterno.png" alt="crudInterno">Cadastro Interno
+        <a href="crud-interno.html">
+          <img src="/src/img/crudInterno.png" alt="crudInterno">Cadastro Interno
         </a>
       </div>
       <div Class="Prontuario">
-        <a href="Prontuario.html">
-          <img src="imgs/perfil-de-usuario.png" alt="user">Prontuário eletrônico
+        <a href="prontuario.html">
+          <img src="/src/img/perfil-de-usuario.png" alt="user">Prontuário eletrônico
         </a>
       </div>
       <div Class="Leito">
         <a href="leito.html">
-          <img src="imgs/leito.png" alt="leito">Leito
+          <img src="/src/img/leito.png" alt="leito">Leito
         </a>
       </div>
       <div Class="Config">
         <a href="#">
-          <img src="imgs/engrenagem.png" alt="engrenagem">Configurações
+          <img src="/src/img/engrenagem.png" alt="engrenagem">Configurações
         </a>
       </div>
     </nav>
@@ -104,19 +104,18 @@
       <h3>Alertas Atuais</h3>
       <input type="text" id="buscaAlerta" placeholder="Buscar alerta..." onkeyup="filtrarAlertas()">
       <ul>
-        <li> <img src="imgs/alerta.png" alt="alerta"> UTI com 90% de ocupação</li>
-        <li> <img src="imgs/alerta.png" alt="alerta"> Estoque de sedativos baixo</li>
-        <li> <img src="imgs/alerta.png" alt="alerta"> 2 leitos interditados na enfermaria</li>
+        <li> <img src="/src/img/alerta.png" alt="alerta"> UTI com 90% de ocupação</li>
+        <li> <img src="/src/img/alerta.png" alt="alerta"> Estoque de sedativos baixo</li>
+        <li> <img src="/src/img/alerta.png" alt="alerta"> 2 leitos interditados na enfermaria</li>
       </ul>
     </section>
     <footer>
       © 2025 - AOBA
     </footer>
   </main>
-  <script src="Dashboard.js"></script>
+  <script src="/src/script/dashboard.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.2/src/wordcloud2.min.js"></script>
-=======
-  <script src="dashboard.js"></script>
+
 </body>
 </html>
