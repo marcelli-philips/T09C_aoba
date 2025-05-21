@@ -122,19 +122,6 @@ nav a:hover {
   object-fit: contain;
 }
 
-.Relatorios {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.Relatorios img {
-  width: 30px;
-  height: 30px;
-  object-fit: contain;
-}
-
 .Usuarios {
   display: flex;
   align-items: center;
@@ -156,6 +143,45 @@ nav a:hover {
 }
 
 .Config img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.Leito {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.Leito img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.CrudPaciente {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.CrudPaciente img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.CrudInterno {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.CrudInterno img {
   width: 30px;
   height: 30px;
   object-fit: contain;
