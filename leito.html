@@ -80,7 +80,7 @@
         <section class="leitos">
             <h3>Gerenciamento de Leitos</h3>
             <div class="leitos-header">
-                <button class="btn-adicionar">+ Adicionar Leito</button>
+                <button class="btn-adicionar" id="btn-adicionar">+ Adicionar Leito</button>
             </div>
             <table class="leitos-table">
                 <thead>
@@ -181,9 +181,9 @@
          <footer>
             © 2025 - AOBA
         </footer>
-        <div id="modal-leito" class="modal-overlay-hidden" onclick="fecharModal(event)">
-            <div class="modal-content" onclick="event.stopPropagation()">
-                <button class="fechar-modal" onclick="fecharModal()">×</button>
+        <div id="modal-cadastro-leito" class="modal-overlay-hidden" onclick="fecharModal(event)">
+            <div class="modal-content"  onclick="event.stopPropagation()">
+                <button class="fechar-modal" id="fechar-modal" onclick="fechar_modal_cadastro()">×</button>
                 <h3 id="CE">Cadastro de Leito</h3>
                 <form id="form-leito">
 
