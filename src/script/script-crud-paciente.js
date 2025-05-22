@@ -1,3 +1,8 @@
+document.getElementById('toggle-menu').addEventListener('click', function () {
+    const sidebar = document.querySelector('aside');
+    sidebar.classList.toggle('minimized');
+});
+
 const modal = document.getElementById("myModal");
 const btn = document.getElementById("myBtn");
 const span = document.getElementsByClassName("close")[0];

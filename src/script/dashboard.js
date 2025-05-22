@@ -22,7 +22,7 @@ function atualizarRelogio() {
   document.getElementById('relogio').textContent = agora.toLocaleTimeString();
 }
 setInterval(atualizarRelogio, 1000);
-atualizarRelogio(); // executa ao carregar
+atualizarRelogio(); 
 
 const cor1 = "#500084";
 const cor2 = "#d798ff";
@@ -131,7 +131,6 @@ const consultas_por_medico = {
     }]
 };
 
-// Configuração do gráfico de barras
 const config_consultas_por_medico = {
     type: 'bar',
     data: consultas_por_medico,
@@ -158,7 +157,6 @@ const config_consultas_por_medico = {
     }
 };
 
-// Renderizar o gráfico de barras
 const ctx_consultas_por_medico = document.getElementById('consultas-por-medico').getContext('2d');
 new Chart(ctx_consultas_por_medico, config_consultas_por_medico);
 
@@ -309,11 +307,11 @@ new Chart(document.getElementById('status-evolucao'), {
     datasets: [{
       data: quantidades,
       backgroundColor: [
-        cor1,   // Alta
-        cor2,   // Em observação
-        cor3,  // Sem evolução
-        cor4,   // Internado
-        cor5   // Encaminhado
+        cor1,  
+        cor2,  
+        cor3,  
+        cor4,   
+        cor5   
       ]
     }]
   },
