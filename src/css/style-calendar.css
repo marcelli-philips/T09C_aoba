@@ -605,3 +605,18 @@ textarea {
   background-color: var(--cor-2);
   color: var(--cor-1);
 }
+
+.calendar-day.hoje {
+  background-color: var(--cor-5);
+  color: white;
+  font-weight: bold;
+  border: 2px solid var(--cor-1);
+}
+
+.activities small {
+  background-color: var(--cor-2);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 12px;
+  font-size: 11px;
+}

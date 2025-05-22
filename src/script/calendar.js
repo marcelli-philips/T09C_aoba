@@ -7,19 +7,12 @@ let month = 4;
 let year = 2025;
 
 const monthNames = [
-  "Janeiro",
-  "Fevereiro",
-  "Março",
-  "Abril",
-  "Maio",
-  "Junho",
-  "Julho",
-  "Agosto",
-  "Setembro",
-  "Outubro",
-  "Novembro",
-  "Dezembro",
+  "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
+  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro",
 ];
+
+// Armazenamento em memória
+let agendamentos = {};
 
 function getDaysInMonth(month, year) {
   return new Date(year, month + 1, 0).getDate();
@@ -36,9 +29,7 @@ function renderCalendar() {
   const totalDays = getDaysInMonth(month, year);
   const startDay = getFirstDayOfMonth(month, year);
 
-  document.getElementById(
-    "titulo-calendario"
-  ).innerHTML = `${monthNames[month]} ${year}`;
+  document.getElementById("titulo-calendario").textContent = `${monthNames[month]} ${year}`;
 
   for (let i = 0; i < startDay; i++) {
     const empty = document.createElement("div");
@@ -56,12 +47,38 @@ function renderCalendar() {
     activities.classList.add("activities");
     activities.innerHTML = "<small>Agendar</small>";
 
+    const today = new Date();
+    if (
+      day === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      date.classList.add("hoje");
+    }
+
+    const chaveData = `${day}-${month}-${year}`;
+    if (agendamentos[chaveData]) {
+      const agendaList = document.createElement("ul");
+      agendaList.style.marginTop = "6px";
+      agendaList.style.fontSize = "12px";
+
+      agendamentos[chaveData].forEach((a) => {
+        const li = document.createElement("li");
+        if (a.tipo === "consulta") {
+          li.textContent = `Consulta c/ ${a.medico}`;
+        } else {
+          li.textContent = `Exame: ${a.exame}`;
+        }
+        agendaList.appendChild(li);
+      });
+
+      date.appendChild(agendaList);
+    }
+
     date.addEventListener("click", () => {
       const modal = document.getElementById("myModal");
       const campoFormulario = document.getElementById("campoFormulario");
-      const dataSelecionada = `${String(day).padStart(2, "0")}/${String(
-        month + 1
-      ).padStart(2, "0")}/${year}`;
+      const dataSelecionada = `${String(day).padStart(2, "0")}/${String(month + 1).padStart(2, "0")}/${year}`;
 
       campoFormulario.innerHTML = `
         <label>Data selecionada: ${dataSelecionada}</label><br><br>
@@ -81,8 +98,8 @@ function renderCalendar() {
           camposDinamicos.innerHTML = `
             <label for="nome">Paciente:</label>
             <input type="text" id="nome" name="nome" required>
-            <label for="nome">Médico:</label>
-            <input type="text" id="nome-medico" name="nome" required>
+            <label for="nome-medico">Médico:</label>
+            <input type="text" id="nome-medico" name="nome-medico" required>
             <label for="horario">Horário:</label>
             <input type="time" id="horario" name="horario" required>
             <label for="descricao">Descrição:</label>
@@ -90,7 +107,7 @@ function renderCalendar() {
           `;
         } else {
           camposDinamicos.innerHTML = `
-          <label for="nome">Paciente:</label>
+            <label for="nome">Paciente:</label>
             <input type="text" id="nome" name="nome" required>
             <label for="nomeExame">Nome do exame:</label>
             <input type="text" id="nomeExame" name="nomeExame" required>
@@ -104,6 +121,9 @@ function renderCalendar() {
 
       atualizarCampos("consulta");
 
+      modal.setAttribute("data-dia", day);
+      modal.setAttribute("data-mes", month);
+      modal.setAttribute("data-ano", year);
       modal.style.display = "block";
     });
 
@@ -111,19 +131,31 @@ function renderCalendar() {
     date.appendChild(activities);
     datesContainer.appendChild(date);
   }
+
+  // Exibir agendamentos do dia atual
+  const hoje = new Date();
+  const chaveHoje = `${hoje.getDate()}-${hoje.getMonth()}-${hoje.getFullYear()}`;
+  const listaHoje = document.getElementById("lista-hoje");
+  const secaoHoje = document.getElementById("agendamentos-hoje");
+
+  if (agendamentos[chaveHoje] && agendamentos[chaveHoje].length > 0) {
+    listaHoje.innerHTML = "";
+    agendamentos[chaveHoje].forEach((a) => {
+      const li = document.createElement("li");
+      if (a.tipo === "consulta") {
+        li.textContent = `Consulta com ${a.medico}, paciente ${a.paciente}, às ${a.horario}`;
+      } else {
+        li.textContent = `Exame: ${a.exame}, paciente ${a.paciente}`;
+      }
+      listaHoje.appendChild(li);
+    });
+    secaoHoje.style.display = "block";
+  } else {
+    secaoHoje.style.display = "none";
+  }
 }
 
-document.querySelector(".close").addEventListener("click", () => {
-  document.getElementById("myModal").style.display = "none";
-});
-
-window.addEventListener("click", (event) => {
-  const modal = document.getElementById("myModal");
-  if (event.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
+// Navegação entre meses
 prevBtn.addEventListener("click", () => {
   month--;
   if (month < 0) {
@@ -142,9 +174,71 @@ nextBtn.addEventListener("click", () => {
   renderCalendar();
 });
 
-document.getElementById("toggle-menu").addEventListener("click", function () {
-  const sidebar = document.querySelector("aside");
-  sidebar.classList.toggle("minimized");
+// Fechar modal
+document.querySelector(".close").addEventListener("click", () => {
+  document.getElementById("myModal").style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  const modal = document.getElementById("myModal");
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.getElementById("myModal").style.display = "none";
+  }
+});
+
+// Salvar agendamento
+document.getElementById("btnCadastrar").addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const inputs = document.querySelectorAll("#campoFormulario input:required");
+  let valido = true;
+  inputs.forEach((input) => {
+    if (!input.value.trim()) {
+      input.style.border = "1px solid red";
+      valido = false;
+    } else {
+      input.style.border = "1px solid #ccc";
+    }
+  });
+
+  if (!valido) {
+    return;
+  }
+
+  const tipo = document.getElementById("tipo").value;
+  const nome = document.getElementById("nome").value;
+  const modal = document.getElementById("myModal");
+  const dia = modal.getAttribute("data-dia");
+  const mes = modal.getAttribute("data-mes");
+  const ano = modal.getAttribute("data-ano");
+  const chave = `${parseInt(dia)}-${parseInt(mes)}-${ano}`;
+
+  let novoAgendamento = { tipo, paciente: nome };
+
+  if (tipo === "consulta") {
+    novoAgendamento.medico = document.getElementById("nome-medico").value;
+    novoAgendamento.horario = document.getElementById("horario").value;
+    novoAgendamento.descricao = document.getElementById("descricao").value;
+  } else {
+    novoAgendamento.exame = document.getElementById("nomeExame").value;
+  }
+
+  if (!agendamentos[chave]) agendamentos[chave] = [];
+  agendamentos[chave].push(novoAgendamento);
+
+  renderCalendar();
+  modal.style.display = "none";
+});
+
+// Sidebar toggle
+document.getElementById("toggle-menu").addEventListener("click", () => {
+  document.querySelector("aside").classList.toggle("minimized");
 });
 
 renderCalendar();
