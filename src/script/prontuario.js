@@ -1,6 +1,11 @@
     document.addEventListener("DOMContentLoaded", function () {
     const dados = localStorage.getItem("prescricao");
 
+    document.getElementById('toggle-menu').addEventListener('click', function () {
+    const sidebar = document.querySelector('aside');
+    sidebar.classList.toggle('minimized');
+  });
+
     if (dados) {
       const prescricao = JSON.parse(dados);
 
