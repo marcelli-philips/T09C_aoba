@@ -58,12 +58,23 @@
     <section class="calendar-section">
       <h3>Calendário</h3>
       <div class="calendar-filters">
-        <div class="month-selector">
-          <button id="prev-month">◀</button>
-          <span id="current-month">Maio 2025</span>
-          <button id="next-month">▶</button>
-        </div>
-      </div>
+  <div class="month-selector">
+    <button id="prev-month">◀</button>
+    <span id="current-month">Maio 2025</span>
+    <button id="next-month">▶</button>
+  </div>
+
+  <div>
+    <label for="filtro-tipo">Filtrar:</label>
+    <select id="filtro-tipo">
+      <option value="todos">Todos</option>
+      <option value="consulta">Consultas</option>
+      <option value="exame">Exames</option>
+    </select>
+    <button id="btn-apagar" style="margin-left: 10px; background-color: crimson; color: white; border: none; border-radius: 4px; padding: 5px 10px;">Apagar tudo</button>
+  </div>
+</div>
+
 
       <div class="calendar">
         <div class="calendar-header">
