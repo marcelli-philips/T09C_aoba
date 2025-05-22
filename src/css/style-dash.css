@@ -138,6 +138,19 @@ nav a:hover {
   object-fit: contain;
 }
 
+.Calendar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.Calendar img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
 .Prontuario {
   display: flex;
   align-items: center;
