@@ -261,3 +261,72 @@ new Chart(document.getElementById('pacientes-por-convenio'), {
     }
   }
 });
+
+const especialidades = ['Clínico Geral', 'Cardiologia', 'Pediatria', 'Ortopedia', 'Dermatologia'];
+const consultas = [34, 20, 18, 12, 6];
+
+new Chart(document.getElementById('consultas-especialidade'), {
+  type: 'bar',
+  data: {
+    labels: especialidades,
+    datasets: [{
+      data: consultas,
+      backgroundColor: [
+        cor1,
+        cor2,
+        cor3,
+        cor4,
+        cor5
+      ]
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Consultas por Especialidade Médica'
+      },
+      legend: {
+      display: false
+    }
+    },
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+const statusEvolucao = ['Alta', 'Em observação', 'Sem evolução', 'Internado', 'Encaminhado'];
+const quantidades = [18, 12, 5, 9, 6];
+
+new Chart(document.getElementById('status-evolucao'), {
+  type: 'pie',
+  data: {
+    labels: statusEvolucao,
+    datasets: [{
+      data: quantidades,
+      backgroundColor: [
+        cor1,   // Alta
+        cor2,   // Em observação
+        cor3,  // Sem evolução
+        cor4,   // Internado
+        cor5   // Encaminhado
+      ]
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Status de Evolução dos Pacientes'
+      },
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }
+});
