@@ -348,3 +348,7 @@
  #adicionarMedicamento:hover{
     background-color: var(--cor-2);
  }
+
+ #pacienteError{
+  color: var(--cor-4);
+ }
