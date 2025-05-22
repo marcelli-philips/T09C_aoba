@@ -5,14 +5,24 @@ const datesContainer = document.querySelector(".calendar-dates");
 
 let month = 4;
 let year = 2025;
+let filtroTipo = "todos"; // Novo: controle do filtro
 
 const monthNames = [
   "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
   "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro",
 ];
 
-// Armazenamento em memória
-let agendamentos = {};
+// Carregamento e salvamento em localStorage
+function carregarAgendamentos() {
+  const data = localStorage.getItem("agendamentos");
+  return data ? JSON.parse(data) : {};
+}
+
+function salvarAgendamentos() {
+  localStorage.setItem("agendamentos", JSON.stringify(agendamentos));
+}
+
+let agendamentos = carregarAgendamentos();
 
 function getDaysInMonth(month, year) {
   return new Date(year, month + 1, 0).getDate();
@@ -63,13 +73,15 @@ function renderCalendar() {
       agendaList.style.fontSize = "12px";
 
       agendamentos[chaveData].forEach((a) => {
-        const li = document.createElement("li");
-        if (a.tipo === "consulta") {
-          li.textContent = `Consulta c/ ${a.medico}`;
-        } else {
-          li.textContent = `Exame: ${a.exame}`;
+        if (filtroTipo === "todos" || a.tipo === filtroTipo) {
+          const li = document.createElement("li");
+          if (a.tipo === "consulta") {
+            li.textContent = `Consulta c/ ${a.medico}`;
+          } else {
+            li.textContent = `Exame: ${a.exame}`;
+          }
+          agendaList.appendChild(li);
         }
-        agendaList.appendChild(li);
       });
 
       date.appendChild(agendaList);
@@ -132,30 +144,36 @@ function renderCalendar() {
     datesContainer.appendChild(date);
   }
 
-  // Exibir agendamentos do dia atual
+  // Exibir agendamentos de hoje
   const hoje = new Date();
   const chaveHoje = `${hoje.getDate()}-${hoje.getMonth()}-${hoje.getFullYear()}`;
   const listaHoje = document.getElementById("lista-hoje");
   const secaoHoje = document.getElementById("agendamentos-hoje");
 
-  if (agendamentos[chaveHoje] && agendamentos[chaveHoje].length > 0) {
-    listaHoje.innerHTML = "";
-    agendamentos[chaveHoje].forEach((a) => {
-      const li = document.createElement("li");
-      if (a.tipo === "consulta") {
-        li.textContent = `Consulta com ${a.medico}, paciente ${a.paciente}, às ${a.horario}`;
-      } else {
-        li.textContent = `Exame: ${a.exame}, paciente ${a.paciente}`;
-      }
-      listaHoje.appendChild(li);
-    });
-    secaoHoje.style.display = "block";
+  if (agendamentos[chaveHoje]) {
+    const visiveisHoje = agendamentos[chaveHoje].filter((a) => filtroTipo === "todos" || a.tipo === filtroTipo);
+
+    if (visiveisHoje.length > 0) {
+      listaHoje.innerHTML = "";
+      visiveisHoje.forEach((a) => {
+        const li = document.createElement("li");
+        if (a.tipo === "consulta") {
+          li.textContent = `Consulta com ${a.medico}, paciente ${a.paciente}, às ${a.horario}`;
+        } else {
+          li.textContent = `Exame: ${a.exame}, paciente ${a.paciente}`;
+        }
+        listaHoje.appendChild(li);
+      });
+      secaoHoje.style.display = "block";
+    } else {
+      secaoHoje.style.display = "none";
+    }
   } else {
     secaoHoje.style.display = "none";
   }
 }
 
-// Navegação entre meses
+// Navegação
 prevBtn.addEventListener("click", () => {
   month--;
   if (month < 0) {
@@ -174,7 +192,7 @@ nextBtn.addEventListener("click", () => {
   renderCalendar();
 });
 
-// Fechar modal
+// Modal
 document.querySelector(".close").addEventListener("click", () => {
   document.getElementById("myModal").style.display = "none";
 });
@@ -207,9 +225,7 @@ document.getElementById("btnCadastrar").addEventListener("click", (e) => {
     }
   });
 
-  if (!valido) {
-    return;
-  }
+  if (!valido) return;
 
   const tipo = document.getElementById("tipo").value;
   const nome = document.getElementById("nome").value;
@@ -231,14 +247,32 @@ document.getElementById("btnCadastrar").addEventListener("click", (e) => {
 
   if (!agendamentos[chave]) agendamentos[chave] = [];
   agendamentos[chave].push(novoAgendamento);
+  salvarAgendamentos();
 
   renderCalendar();
   modal.style.display = "none";
 });
 
-// Sidebar toggle
+// Filtro por tipo
+document.getElementById("filtro-tipo").addEventListener("change", (e) => {
+  filtroTipo = e.target.value;
+  renderCalendar();
+});
+
+// Botão para apagar todos os agendamentos
+document.getElementById("btn-apagar").addEventListener("click", () => {
+  if (confirm("Tem certeza que deseja apagar todos os agendamentos?")) {
+    agendamentos = {};
+    localStorage.removeItem("agendamentos");
+    renderCalendar();
+    alert("Todos os agendamentos foram apagados.");
+  }
+});
+
+// Sidebar
 document.getElementById("toggle-menu").addEventListener("click", () => {
   document.querySelector("aside").classList.toggle("minimized");
 });
 
+// Inicializa
 renderCalendar();
