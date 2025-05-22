@@ -8,8 +8,18 @@ let year = 2025;
 let filtroTipo = "todos"; // Novo: controle do filtro
 
 const monthNames = [
-  "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho",
-  "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro",
+  "Janeiro",
+  "Fevereiro",
+  "Março",
+  "Abril",
+  "Maio",
+  "Junho",
+  "Julho",
+  "Agosto",
+  "Setembro",
+  "Outubro",
+  "Novembro",
+  "Dezembro",
 ];
 
 // Carregamento e salvamento em localStorage
@@ -39,7 +49,9 @@ function renderCalendar() {
   const totalDays = getDaysInMonth(month, year);
   const startDay = getFirstDayOfMonth(month, year);
 
-  document.getElementById("titulo-calendario").textContent = `${monthNames[month]} ${year}`;
+  document.getElementById(
+    "titulo-calendario"
+  ).textContent = `${monthNames[month]} ${year}`;
 
   for (let i = 0; i < startDay; i++) {
     const empty = document.createElement("div");
@@ -90,7 +102,9 @@ function renderCalendar() {
     date.addEventListener("click", () => {
       const modal = document.getElementById("myModal");
       const campoFormulario = document.getElementById("campoFormulario");
-      const dataSelecionada = `${String(day).padStart(2, "0")}/${String(month + 1).padStart(2, "0")}/${year}`;
+      const dataSelecionada = `${String(day).padStart(2, "0")}/${String(
+        month + 1
+      ).padStart(2, "0")}/${year}`;
 
       campoFormulario.innerHTML = `
         <label>Data selecionada: ${dataSelecionada}</label><br><br>
@@ -103,7 +117,8 @@ function renderCalendar() {
       `;
 
       const tipoSelect = campoFormulario.querySelector("#tipo");
-      const camposDinamicos = campoFormulario.querySelector("#campos-dinamicos");
+      const camposDinamicos =
+        campoFormulario.querySelector("#campos-dinamicos");
 
       function atualizarCampos(tipo) {
         if (tipo === "consulta") {
@@ -146,12 +161,21 @@ function renderCalendar() {
 
   // Exibir agendamentos de hoje
   const hoje = new Date();
-  const chaveHoje = `${hoje.getDate()}-${hoje.getMonth()}-${hoje.getFullYear()}`;
+  const chaveHoje = `${hoje.getDate()}-${
+    hoje.getMonth() + 1
+  }-${hoje.getFullYear()}`;
   const listaHoje = document.getElementById("lista-hoje");
   const secaoHoje = document.getElementById("agendamentos-hoje");
 
+console.log("filtroTipo:", filtroTipo);
+
+  console.log("chaveHoje:", chaveHoje);
+  console.log("agendamentos:", agendamentos);
+
   if (agendamentos[chaveHoje]) {
-    const visiveisHoje = agendamentos[chaveHoje].filter((a) => filtroTipo === "todos" || a.tipo === filtroTipo);
+    const visiveisHoje = agendamentos[chaveHoje].filter(
+      (a) => filtroTipo === "todos" || a.tipo === filtroTipo
+    );
 
     if (visiveisHoje.length > 0) {
       listaHoje.innerHTML = "";
