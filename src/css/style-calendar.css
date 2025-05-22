@@ -4,19 +4,22 @@
   --cor-3: #aa33ff;
   --cor-4: #7a00cb;
   --cor-5: #b152e9;
+  --cor-bg: #f4f6f8;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: "Chocolate Classical Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 body {
   display: flex;
   min-height: 100vh;
-  background-color: #f4f6f8;
+  background-color: var(--cor-bg);
 }
 
 aside {
@@ -26,6 +29,16 @@ aside {
   padding: 20px;
   transition: width 0.3s;
   overflow: hidden;
+}
+
+aside.minimized {
+  width: 60px;
+}
+ 
+aside.minimized h2,
+aside.minimized nav a,
+aside.minimized .logo {
+  display: none;
 }
 
 .toggle-btn {
@@ -122,14 +135,40 @@ nav a:hover {
   object-fit: contain;
 }
 
-.Usuarios {
+.Calendar {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
 }
 
-.Usuarios img {
+.Calendar img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.Prontuario {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.Prontuario img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.prescricao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.prescricao img {
   width: 30px;
   height: 30px;
   object-fit: contain;
@@ -283,6 +322,10 @@ header h1 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   height: auto;
   margin-left: 20px;
+}
+
+ul {
+  list-style: none;
 }
 
 footer {
