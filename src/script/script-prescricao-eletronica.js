@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
+    srcipt:
+    document.getElementById('toggle-menu').addEventListener('click', function () {
+        const sidebar = document.querySelector('aside');
+        sidebar.classList.toggle('minimized');
+    });
+
 
     aplicarMascaras();
 
@@ -105,25 +111,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-function salvarLocalStorage(prescricao) {
-    const prescricoes = JSON.parse(localStorage.getItem("prescricoes")) || [];
-    prescricoes.push(prescricao);
-    localStorage.setItem("prescricoes", JSON.stringify(prescricoes));
-}
-
-function aplicarMascaras() {
-    // CPF
-    const cpfInput = document.getElementById("cpfPrescricao");
-    if (cpfInput && !cpfInput._imask) {
-        IMask(cpfInput, { mask: "000.000.000-00" });
+    function salvarLocalStorage(prescricao) {
+        const prescricoes = JSON.parse(localStorage.getItem("prescricoes")) || [];
+        prescricoes.push(prescricao);
+        localStorage.setItem("prescricoes", JSON.stringify(prescricoes));
     }
 
-    // Telefone
-    const telInput = document.getElementById("telefone");
-    if (telInput && !telInput._imask) {
-        IMask(telInput, { mask: "(00) 00000-0000" });
+    function aplicarMascaras() {
+        // CPF
+        const cpfInput = document.getElementById("cpfPrescricao");
+        if (cpfInput && !cpfInput._imask) {
+            IMask(cpfInput, { mask: "000.000.000-00" });
+        }
+
+        // Telefone
+        const telInput = document.getElementById("telefone");
+        if (telInput && !telInput._imask) {
+            IMask(telInput, { mask: "(00) 00000-0000" });
+        }
     }
-}
-    
+
 });
 
