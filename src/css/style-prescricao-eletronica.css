@@ -19,9 +19,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Chocolate Classical Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
+  font-family: "Chocolate Classical Sans", "roboto";
 }
 
 body {
@@ -61,7 +59,7 @@ aside h2 {
 }
 
 .toggle-btn:hover {
-  background-color: var(--corLetra-1);
+  background-color: var(--cor-4);
   transform: scale(1.05);
 }
 
