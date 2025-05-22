@@ -15,6 +15,11 @@ btn.onclick = function () {
     abrirModal();
 };
 
+document.getElementById('toggle-menu').addEventListener('click', function () {
+    const sidebar = document.querySelector('aside');
+    sidebar.classList.toggle('minimized');
+});
+
 span.onclick = () => modal.style.display = "none";
 window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
 
