@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Leito</title>
-    <!-- Link com o CSS -->
     <link rel="stylesheet" href="/src/css/style-leito.css" />
-    <!-- Fonte a ser usada -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"
@@ -15,43 +13,56 @@
 </head>
 
 <body>
-    <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox" />
-    <label for="menu-toggle" class="menu-toggle-label">☰</label>
-
     <aside>
-        <div class="logo">
-            <h2>Menu</h2>
-            <img src="/src/img/logo.png" alt="Logo AOBA" />
-        </div>
-        <nav>
-            <div class="menu-item">
-                <a href="#">
-                    <img src="/src/img/grafico-preditivo.png" alt="Dashboard" />Dashboard
-                </a>
-            </div>
-            <div class="menu-item">
-                <a href="#">
-                    <img src="/src/img/caderno.png" alt="Relatórios" />Relatórios
-                </a>
-            </div>
-            <div class="menu-item">
-                <a href="#">
-                    <img src="/src/img/perfil-de-usuario.png" alt="Usuários" />Usuários
-
-                </a>
-            </div>
-            <div class="menu-item">
-                <a href="#">
-                    <img src="/src/img/engrenagem.png" alt="Configurações" />Configurações
-                </a>
-            </div>
-            <div class="menu-item">
-                <a href="#">
-                    <img src="/src/img/leito.png" alt="Leitos" />Leitos
-                </a>
-            </div>
-        </nav>
-    </aside>
+    <button id="toggle-menu" class="toggle-btn">☰</button>
+    <div class="logo">
+      <h2>Menu</h2>
+          <img src="/src/img/logo1.png" alt="Logo AOBA">
+    </div>
+    <nav>
+      <div Class="Dash">
+        <a href="dashboard.html">
+          <img src="/src/img/grafico-preditivo.png" alt="grafico">Dashboard
+        </a>
+      </div>
+      <div Class="Calendar">
+        <a href="calendario.html"">
+          <img src="/src/img/calendar.png" alt="grafico">Agendamentos
+        </a>
+      </div>
+      <div Class="Prontuario">
+        <a href="prontuario.html">
+          <img src="/src/img/perfil-de-usuario.png" alt="user">Prontuário eletrônico
+        </a>
+      </div>
+      <div class="prescricao">
+        <a href="prescricao-eletronica.html">
+          <img src="/src/img/prescricao.png" alt="user">Prescrição Eletrônica
+        </a>
+      </div>
+      <div Class="Leito">
+        <a href="leito.html">
+          <img src="/src/img/leito.png" alt="leito">Leito
+        </a>
+      </div>
+      <div Class="CrudPaciente">
+        <a href="crud-paciente.html">
+          <img src="/src/img/crud-paciente.png" alt="crudPaciente">Cadastro Paciente
+        </a>
+      </div>
+      <div Class="CrudInterno">
+        <a href="crud-interno.html">
+          <img src="/src/img/crud-interno.png" alt="crudInterno">Cadastro Interno
+        </a>
+      </div>
+      </div>
+      <div Class="Config">
+        <a href="config.html">
+          <img src="/src/img/engrenagem.png" alt="engrenagem">Configurações
+        </a>
+      </div>
+    </nav>
+  </aside>
     <main>
     <header>
         

@@ -148,6 +148,19 @@ nav a:hover {
   object-fit: contain;
 }
 
+.prescricao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.prescricao img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
 .Config {
   display: flex;
   align-items: center;
@@ -183,7 +196,7 @@ nav a:hover {
 
 .CrudPaciente img {
   width: 30px;
-  height: 30px;
+  height: 40px;
   object-fit: contain;
 }
 
@@ -198,18 +211,6 @@ nav a:hover {
   width: 30px;
   height: 30px;
   object-fit: contain;
-}
-
-.menu-toggle-checkbox {
-  display: none;
-}
-
-.menu-toggle-label {
-  display: none;
-  font-size: 28px;
-  padding: 10px 20px;
-  background-color: var(--cor-1);
-  color: white;
 }
 
 main {
