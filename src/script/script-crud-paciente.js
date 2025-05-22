@@ -1,3 +1,8 @@
+document.getElementById('toggle-menu').addEventListener('click', function () {
+    const sidebar = document.querySelector('aside');
+    sidebar.classList.toggle('minimized');
+});
+
 const modal = document.getElementById("myModal");
 const btn = document.getElementById("myBtn");
 const span = document.getElementsByClassName("close")[0];
@@ -230,10 +235,10 @@ function atualizarTabela() {
         
             <td class="acoes">
                 <button onclick="editarRegistro('${r.id}')">
-                    <img src="imagens/editar1.png" alt="simbolo_editar" style="width:18px; height:18px;">
+                    <img src="../img/editar.png" alt="simbolo_editar" style="width:18px; height:18px;">
                 </button>
                 <button onclick="deletarRegistro('${r.id}')">
-                    <img src="imagens/deletar1.png" alt="simbolo_deletar" style="width:17px; height:18px;">
+                    <img src="../img/deletar.png" alt="simbolo_deletar" style="width:17px; height:18px;">
                 </button>
             </td>
         </tr>
