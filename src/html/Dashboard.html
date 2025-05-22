@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
- <link rel="stylesheet" href="/src/css/style-dash.css">
+  <link rel="stylesheet" href="/src/css/style-dash.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
 <body>
@@ -94,8 +95,16 @@
           <canvas id="consultas-por-medico"></canvas>
         </div>
         <div class="chart-box">
-          <h2>Frequência de Exames Solicitados</h2>
-          <div id="nuvem-de-palavras"></div>
+          <p>Distribuição por Gênero e Faixa Etária</p>
+          <canvas id="genero-faixa-etaria"></canvas>
+        </div>
+        <div class="chart-box">
+          <p>Ocupação de Leitos</p>
+          <canvas id="ocupacao-leitos"></canvas>
+        </div>
+        <div class="chart-box">
+          <p>Pacientes por Convênio</p>
+          <canvas id="pacientes-por-convenio"></canvas>
         </div>
       </div>
     </section>
@@ -115,6 +124,8 @@
   </main>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.1.2/src/wordcloud2.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
   <script src="/src/script/dashboard.js"></script>
 </body>
 </html>

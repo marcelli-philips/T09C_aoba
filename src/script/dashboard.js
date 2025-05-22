@@ -30,10 +30,10 @@ const cor3 = "#aa33ff";
 const cor4 = "#7a00cb";
 const cor5 = "#b152e9";
 
-  document.getElementById('toggle-menu').addEventListener('click', function () {
+document.getElementById('toggle-menu').addEventListener('click', function () {
     const sidebar = document.querySelector('aside');
     sidebar.classList.toggle('minimized');
-  });
+});
 
 //Gráficos inicio
 const severidade_labels = ['Baixa', 'Media', 'Alta'];
@@ -162,31 +162,102 @@ const config_consultas_por_medico = {
 const ctx_consultas_por_medico = document.getElementById('consultas-por-medico').getContext('2d');
 new Chart(ctx_consultas_por_medico, config_consultas_por_medico);
 
-// Dados fictícios para Frequência de Exames Solicitados
-const exames = [
-    ['Hemograma', 20],
-    ['Raio-X', 15],
-    ['Ultrassom', 10],
-    ['Tomografia', 8],
-    ['Ressonância', 5],
-    ['Mamografia', 3],
-    ['Eletrocardiograma', 12],
-    ['Teste de Esforço', 2]
-];
+const generoFaixaEtariaData = {
+  labels: ['0-12', '13-18', '19-40', '41-60', '60+'],
+  datasets: [
+    {
+      label: 'Masculino',
+      data: [4, 6, 12, 9, 7],
+      backgroundColor: cor4
+    },
+    {
+      label: 'Feminino',
+      data: [5, 7, 10, 11, 6],
+      backgroundColor: cor2
+    }
+  ]
+};
 
-// Renderizar a nuvem de palavras
-WordCloud(document.getElementById('nuvem-de-palavras'), {
-    list: exames,
-    gridSize: Math.round(16 * document.getElementById('nuvem-de-palavras').offsetWidth / 1024),
-    weightFactor: function (size) {
-        return Math.pow(size, 2.3) * document.getElementById('nuvem-de-palavras').offsetWidth / 1024;
+new Chart(document.getElementById('genero-faixa-etaria'), {
+  type: 'bar',
+  data: generoFaixaEtariaData,
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Pacientes por Gênero e Faixa Etária'
+      }
     },
-    fontFamily: 'Times, serif',
-    color: function (word, weight) {
-        return (weight === 12) ? '#f02222' : '#c09292';
-    },
-    rotateRatio: 0.5,
-    rotationSteps: 2,
-    backgroundColor: '#ffe0e0'
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
 });
 
+const leitosDisponiveis = 12;
+const leitosOcupados = 28;
+
+const ocupacaoLeitosData = {
+  labels: ['Disponíveis', 'Ocupados'],
+  datasets: [{
+    label: 'Leitos',
+    data: [leitosDisponiveis, leitosOcupados],
+    backgroundColor: [
+      cor2, 
+      cor3  
+    ],
+    borderWidth: 1
+  }]
+};
+
+new Chart(document.getElementById('ocupacao-leitos'), {
+  type: 'doughnut',
+  data: ocupacaoLeitosData,
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Ocupação Atual de Leitos'
+      },
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }
+});
+
+const convenios = ['SUS', 'Unimed', 'Bradesco Saúde', 'Particular', 'Amil'];
+const quantidade = [40, 22, 10, 8, 5];
+
+new Chart(document.getElementById('pacientes-por-convenio'), {
+  type: 'doughnut',
+  data: {
+    labels: convenios,
+    datasets: [{
+      data: quantidade,
+      backgroundColor: [
+        cor1,
+        cor2,
+        cor3,
+        cor4,
+        cor5
+      ]
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Distribuição por Convênio'
+      },
+      legend: {
+        position: 'bottom'
+      }
+    }
+  }
+});
