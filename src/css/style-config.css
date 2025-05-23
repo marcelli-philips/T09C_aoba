@@ -2,6 +2,7 @@
     font-family: "Chocolate Classical Sans", "roboto";
 }
 
+
 main section {
   background-color: var(--secao);
   padding: 20px;
@@ -60,10 +61,16 @@ label {
   margin-bottom: 5px;
 }
 
+.Salvar{
+  background-color: var(--cor-2);
+  color: var(--cor-1);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 button {
   background-color: var(--cor-2);
   color: var(--cor-1);
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -145,6 +152,19 @@ button:hover {
 }
 
 .Prontuario img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.prescricao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.prescricao img {
   width: 30px;
   height: 30px;
   object-fit: contain;

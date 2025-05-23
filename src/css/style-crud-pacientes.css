@@ -12,7 +12,7 @@
   box-sizing: border-box;
   font-family: "Chocolate Classical Sans", 'roboto';
 }
- 
+
 body {
   display: flex;
   min-height: 100vh;  
@@ -107,6 +107,7 @@ nav a:hover {
   height: 70px;
   margin-top: 18px;
   margin-left: 22px;
+
   object-fit: contain;
 }
 
@@ -297,7 +298,6 @@ footer {
   font-size: 14px;
   color: #94a3b8;
 }
-
 .chart-grid {
   display: grid;
   grid-template-columns: 1fr;
