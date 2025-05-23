@@ -12,8 +12,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Chocolate Classical Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
 }
 
 body {
@@ -29,16 +27,6 @@ aside {
   padding: 20px;
   transition: width 0.3s;
   overflow: hidden;
-}
-
-aside.minimized {
-  width: 60px;
-}
- 
-aside.minimized h2,
-aside.minimized nav a,
-aside.minimized .logo {
-  display: none;
 }
 
 .toggle-btn {
@@ -118,7 +106,7 @@ nav a:hover {
 .logo img {
   width: 70px;
   height: 70px;
-  margin-top: 5px;
+  margin-top: 18px;
   object-fit: contain;
 }
 
@@ -469,7 +457,7 @@ footer {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  margin: 20px;
+  margin-left: 20px;
 }
 
 .calendar-header {
