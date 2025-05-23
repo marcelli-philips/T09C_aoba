@@ -18,13 +18,13 @@ function carregarFraseMotivacional() {
     quoteElement.innerHTML = `
       <p>
       <img
-        src="Imagens/quote.png"
+        src="/src/img/quote.png"
         class="quote-img left-quote"
         alt="Aspas decorativas"
       />
       ${frases[index]}
       <img
-        src="Imagens/double-quotes.png"
+        src="/src/img/double-quotes.png"
         class="quote-img right-quote"
         alt="Aspas decorativas"
       />
