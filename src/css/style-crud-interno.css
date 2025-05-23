@@ -108,6 +108,7 @@ nav a:hover {
 .logo img {
   width: 70px;
   height: 70px;
+  margin-top: 18px;
   object-fit: contain;
 }
 
@@ -159,7 +160,7 @@ nav a:hover {
 
 .CrudPaciente img {
   width: 30px;
-  height: 30px;
+  height: 40px;
   object-fit: contain;
 }
 
