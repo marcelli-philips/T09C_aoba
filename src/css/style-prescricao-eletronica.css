@@ -115,6 +115,8 @@ nav a:hover {
 .logo img {
   width: 70px;
   height: 70px;
+  margin-top: 18px;
+  margin-left: 22px;
   object-fit: contain;
 }
 
@@ -192,8 +194,8 @@ nav a:hover {
 }
 
 .CrudPaciente img {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 40px;
   object-fit: contain;
 }
 
@@ -205,8 +207,8 @@ nav a:hover {
 }
 
 .CrudInterno img {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 
@@ -221,45 +223,6 @@ nav a:hover {
   width: 30px;
   height: 30px;
   object-fit: contain;
-}
-
-.menu-toggle-checkbox {
-  display: none;
-}
-
-.menu-toggle-label {
-  display: none;
-  font-size: 28px;
-  padding: 10px 20px;
-  background-color: var(--cor-1);
-  color: var(--corLetra-1);
-}
-
-@media (max-width: 768px) {
-  .menu-toggle-label {
-    display: block;
-  }
-
-  aside {
-    position: fixed;
-    left: -220px;
-    top: 0;
-    height: 100%;
-    transition: left 0.3s ease;
-    z-index: 1000;
-  }
-
-  aside.open {
-    left: 0;
-  }
-
-  .menu-toggle-checkbox:checked+.menu-toggle-label+aside {
-    left: 0;
-  }
-
-  main {
-    padding-left: 0;
-  }
 }
 
 main {
@@ -277,7 +240,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 header h1 {
@@ -362,10 +325,6 @@ input {
   border: 1px solid var(--cor-2);
 }
 
-h2 {
-  margin: 20px;
-  color: var(--corBg10);
-}
 
 #btnCadastrar {
   width: 100px;
