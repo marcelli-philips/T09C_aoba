@@ -42,7 +42,7 @@
       </div>
       <div Class="Leito">
         <a href="leito.html">
-          <img src="/src/img/leito.png" alt="leito">Leito
+          <img src="/src/img/leito.png" alt="leito">Leitos
         </a>
       </div>
       <div Class="CrudPaciente">
@@ -91,9 +91,6 @@
 
         <section class="leitos">
             <h3>Gerenciamento de Leitos</h3>
-            <div class="leitos-header">
-                <button class="btn-adicionar" id="btn-adicionar">+ Adicionar Leito</button>
-            </div>
             <table class="leitos-table">
                 <thead>
                     <tr>
@@ -113,70 +110,7 @@
                         <td>Maria Lima</td>
                         <td><button class="btn-acao">Liberar</button></td>
                     </tr>
-                    <tr>
-
-                        <td>Clínica Geral</td>
-                        <td>Leito 12</td>
-                        <td><span class="status ocupado">Ocupado</span></td>
-                        <td>Maria Lima</td>
-                        <td><button class="btn-acao">Liberar</button></td>
-                    </tr>
-                    <tr>
-
-                        <td>Clínica Geral</td>
-                        <td>Leito 12</td>
-                        <td><span class="status ocupado" ">Ocupado</span></td>
-            <td>Maria Lima</td>
-            <td><button class=" btn-acao">Liberar</button></td>
-                    </tr>
-                    <tr>
-
-                        <td>Clínica Geral</td>
-                        <td>Leito 12</td>
-                        <td><span class="status ocupado">Ocupado</span></td>
-                        <td>Maria Lima</td>
-                        <td><button class="btn-acao">Liberar</button></td>
-                    </tr>
-                    <tr>
-
-                        <td>Clínica Geral</td>
-                        <td>Leito 12</td>
-                        <td><span class="status ocupado">Ocupado</span></td>
-                        <td>Maria Lima</td>
-                        <td><button class="btn-acao">Liberar</button></td>
-                    </tr>
-                    <tr>
-
-                        <td>Clínica Geral</td>
-                        <td>Leito 12</td>
-                        <td><span class="status ocupado">Ocupado</span></td>
-                        <td>Maria Lima</td>
-                        <td><button class="btn-acao">Liberar</button></td>
-                    </tr>
-                    <tr>
-
-                        <td>Clínica Geral</td>
-                        <td>Leito 12</td>
-                        <td><span class="status ocupado">Ocupado</span></td>
-                        <td>Maria Lima</td>
-                        <td><button class="btn-acao">Liberar</button></td>
-                    </tr>
-                    <tr>
-
-                        <td>UTI</td>
-                        <td>Leito 03</td>
-                        <td><span class="status livre">Livre</span></td>
-                        <td>-</td>
-                        <td><button class="btn-acao-livre">Ocupar</button></td>
-                    </tr>
-                    <tr>
-
-                        <td>Pediatria</td>
-                        <td>Leito 07</td>
-                        <td><span class="status manutencao">Manutenção</span></td>
-                        <td>-</td>
-                        <td><button class="btn-acao" disabled>Indisponível</button></td>
-                    </tr>
+                    
                 </tbody>
             </table>
         </section>
@@ -196,14 +130,15 @@
         <div id="modal-cadastro-leito" class="modal-overlay-hidden" onclick="fecharModal(event)">
             <div class="modal-content"  onclick="event.stopPropagation()">
                 <button class="fechar-modal" id="fechar-modal" onclick="fechar_modal_cadastro()">×</button>
-                <h3 id="CE">Cadastro de Leito</h3>
+                <h3 id="CE">Ocupar Leito</h3>
                 <form id="form-leito">
 
-                    <label for="alaLeito">Ala:</label>
-                    <input type="text" id="alaLeito" required />
+                    <label for="alaLeito">Nome do Paciente</label>
+                    <input type="text" id="nome-paciente" required />
 
-                    <label for="nomeLeito">Nome/Número do Leito:</label>
-                    <input type="text" id="nomeLeito" required />
+                    <label for="nomeLeito">Lista encontrada</label>
+                    
+                    <div id="listaPacientes"></div>
 
                     <div class="modal-actions">
                         <button type="submit" class="btn-salvar">Salvar</button>
