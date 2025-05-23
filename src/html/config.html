@@ -9,7 +9,8 @@
   <link rel="stylesheet" href="/src/css/style-config.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chocolate+Classical+Sans&family=New+Rocker&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 
@@ -20,20 +21,10 @@
       <h2>Menu</h2>
           <img src="/src/img/logo1.png" alt="Logo AOBA">
     </div>
-<nav>
+    <nav>
       <div Class="Dash">
         <a href="dashboard.html">
           <img src="/src/img/grafico-preditivo.png" alt="grafico">Dashboard
-        </a>
-      </div>
-      <div Class="CrudPaciente">
-        <a href="crud-paciente.html">
-          <img src="/src/img/crud-paciente.png" alt="crudPaciente">Cadastro Paciente
-        </a>
-      </div>
-      <div Class="CrudInterno">
-        <a href="crud-interno.html">
-          <img src="/src/img/crud-interno.png" alt="crudInterno">Cadastro Interno
         </a>
       </div>
       <div Class="Calendar">
@@ -46,13 +37,28 @@
           <img src="/src/img/perfil-de-usuario.png" alt="user">Prontuário eletrônico
         </a>
       </div>
+      <div class="prescricao">
+        <a href="prescricao-eletronica.html">
+          <img src="/src/img/prescricao.png" alt="user">Prescrição Eletrônica
+        </a>
+      </div>
       <div Class="Leito">
         <a href="leito.html">
-          <img src="/src/img/leito.png" alt="leito">Leito
+          <img src="/src/img/leito.png" alt="leito">Leitos
+        </a>
+      </div>
+      <div Class="CrudPaciente">
+        <a href="crud-paciente.html">
+          <img src="/src/img/crud-paciente.png" alt="crudPaciente">Cadastro Paciente
+        </a>
+      </div>
+      <div Class="CrudInterno">
+        <a href="crud-interno.html">
+          <img src="/src/img/crud-interno.png" alt="crudInterno">Cadastro Interno
         </a>
       </div>
       <div Class="Config">
-        <a href="#">
+        <a href="config.html">
           <img src="/src/img/engrenagem.png" alt="engrenagem">Configurações
         </a>
       </div>
@@ -80,10 +86,11 @@
           <option value="usuario">Usuário</option>
         </select>
       </div>
-      <button onclick="salvarConfiguracoes()">Salvar Configurações</button>
+      <button class="Salvar" onclick="salvarConfiguracoes()">Salvar configurações</button>
     </section>
   </main>
 
   <script src="/src/script/script-config.js"></script>
 </body>
+
 </html>
