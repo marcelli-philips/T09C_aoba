@@ -11,7 +11,7 @@ function aplicarTema(tema) {
       root.style.setProperty('--cor-3', '#aa33ff');
       root.style.setProperty('--cor-4', '#b152e9');
       root.style.setProperty('--cor-5', '#d798ff');
-      root.style.setProperty('--fundo', '#000000');
+      root.style.setProperty('--fundo', '#1d1d1d');
       root.style.setProperty('--texto', '#e5e5e5');
       root.style.setProperty('--header', '#444444');
       root.style.setProperty('--secao', '#444444');
