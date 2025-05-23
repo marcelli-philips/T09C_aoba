@@ -261,12 +261,6 @@ nav a:hover {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
-  background-color: #fff;
-  padding: 15px 20px;
-  border-bottom: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  margin-bottom: 20px;
 }
 
 .header h1 {
@@ -424,51 +418,4 @@ input {
   font-weight: bold;
   color: var(--cor-1);
   cursor: pointer;
-}
-
-#pesquisar-alergia {
-  display: flex;
-  flex-direction: row;
-}
-
-#myBtn {
-  background-color: rgb(187, 186, 186);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  font-size: 14px;
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-}
-
-#myBtn:hover {
-  background-color: var(--cor-5);
-}
-
-#registro {
-  border-collapse: collapse;
-  width: 70vw;
-}
-
-#registro td,
-#registro th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#registro tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-#registro tr:hover {
-  background-color: #ebd5f8;
-}
-
-#registro th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: var(--cor-5);
-  color: white;
 }
