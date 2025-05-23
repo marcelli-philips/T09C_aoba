@@ -519,3 +519,7 @@ footer {
   width: 20px;
   height: 20px;
 }
+
+ul {
+  list-style: none;
+}
