@@ -14,3 +14,7 @@ function fechar_modal_cadastro(){
     modal_cadastro.classList.add('modal-overlay-hidden')
 }
 
+document.getElementById('toggle-menu').addEventListener('click', function () {
+    const sidebar = document.querySelector('aside');
+    sidebar.classList.toggle('minimized');
+});
