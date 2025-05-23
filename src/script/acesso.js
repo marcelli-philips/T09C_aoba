@@ -8,7 +8,7 @@
         cadastroInterno.style.display = 'none';
       }
 
-      // Desativa todos os formulários
+      // Desativa todos os formulários.
       const inputs = document.querySelectorAll('input, textarea, select, button[type="submit"]');
       inputs.forEach(input => {
         input.disabled = true;
