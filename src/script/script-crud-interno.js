@@ -10,20 +10,20 @@ const registros = JSON.parse(localStorage.getItem("registros")) || [];
 let modoEdicao = false;
 let registroEmEdicao = null;
 
- //evento para abrir o modal
+//evento para abrir o modal
 btn.onclick = function () {
     abrirModal();
 };
 
 document.getElementById('toggle-menu').addEventListener('click', function () {
-    const sidebar = document.querySelector('aside');
-    sidebar.classList.toggle('minimized');
+    const sidebar = document.querySelector('aside');
+    sidebar.classList.toggle('minimized');
 });
 
 span.onclick = () => modal.style.display = "none";
 window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
 
- //abre o modal conferindo qual é o valor dele apartir do id=tipo, assim diferenciando qual formulario abrir
+//abre o modal conferindo qual é o valor dele apartir do id=tipo, assim diferenciando qual formulario abrir
 function abrirModal(registro = null) {
     const tipo = registro ? registro.tipo : document.getElementById("tipo").value;
 
@@ -50,9 +50,30 @@ function abrirModal(registro = null) {
             <label for="nomeAlergia">Nome da Alergia</label>
             <input type="text" placeholder="Nome da Alergia" id="nomeAlergia" value="${registro?.nomeAlergia || ''}" required />
           </div>
+          
           <div class="form-group">
             <label for="descricaoAlergia">Descrição</label>
             <textarea id="descricaoAlergia" placeholder="Descrição" rows="3">${registro?.descricaoAlergia || ''}</textarea>
+          </div>
+        `;
+    } else if (tipo === "leito") {
+        campoFormulario.innerHTML = `
+          <h3 id="CA">Cadastro de Leito</h3>
+          <div class="form-group">
+            <label for="alaLeito">Ala do Leito</label>
+            <input type="text" placeholder="Ala do Leito" id="alaLeito" value="${registro?.alaLeito || ''}" required />
+          </div>
+          <div class="form-group">
+            <label for="quartoLeito">Quarto do Leito</label>
+            <input type="text" placeholder="Quarto do Leito" id="quartoLeito" value="${registro?.quartoLeito || ''}" required />
+          </div>
+          <div class="form-group">
+            <label for="numeroLeito">Identificação do Leito</label>
+            <input type="text" placeholder="Identificão do Leito" id="numeroLeito" value="${registro?.numeroLeito || ''}" required />
+          </div>
+          <div class="form-group">
+            <label for="observacaoLeito">Observação</label>
+            <textarea id="observacaoLeito" placeholder="Detalhes do leito" rows="3">${registro?.observacaoLeito || ''}</textarea>
           </div>
         `;
     } else {
@@ -76,7 +97,7 @@ function abrirModal(registro = null) {
     modal.style.display = "block";
 }
 
- // Faz para o submit do botao para o form.onsubmit conseguir salvar as informações preenchidas no formulario
+// Faz para o submit do botao para o form.onsubmit conseguir salvar as informações preenchidas no formulario
 form.onsubmit = function (e) {
     e.preventDefault();
     const tipo = document.getElementById("tipo").value;
@@ -89,6 +110,12 @@ form.onsubmit = function (e) {
     } else if (tipo === "alergia") {
         novoRegistro.nomeAlergia = document.getElementById("nomeAlergia").value;
         novoRegistro.descricaoAlergia = document.getElementById("descricaoAlergia").value;
+    }else if (tipo === "leito"){
+         novoRegistro.alaLeito = document.getElementById("alaLeito").value;
+        novoRegistro.quartoLeito = document.getElementById("quartoLeito").value;
+        novoRegistro.numeroLeito = document.getElementById("numeroLeito").value;
+        novoRegistro.observacaoLeito = document.getElementById("observacaoLeito").value;
+    
     } else {
         novoRegistro.nomeMedico = document.getElementById("nomeMedico").value;
         novoRegistro.CRM = document.getElementById("CRM").value;
@@ -148,20 +175,30 @@ function atualizarTabela() {
         html += `<th>Nome da Alergia</th><th>Descrição</th>`;
     } else if (tipoAtual === 'medico') {
         html += `<th>Nome</th><th>CRM</th><th>Especialidade</th>`;
+    }else if (tipoAtual === 'leito') {
+        html += `<th>Ala</th><th>Quarto</th><th>Numero</th><th>Observação</th>`;
     }
 
     html += `<th>Ações</th></tr></thead><tbody>`;
 
     //  confere o tipo de tabela para inserir as informações na tabela selecionada 
-    html += filtrados.map(r => `
+    html += filtrados.map(r => {
+    let colunas = '';
+
+    if (tipoAtual === 'exame') {
+        colunas = `<td>${r.nome}</td><td>${r.descricao}</td>`;
+    } else if (tipoAtual === 'alergia') {
+        colunas = `<td>${r.nomeAlergia}</td><td>${r.descricaoAlergia}</td>`;
+    } else if (tipoAtual === 'medico') {
+        colunas = `<td>${r.nomeMedico}</td><td>${r.CRM}</td><td>${r.especialidade}</td>`;
+    } else if (tipoAtual === 'leito') {
+        colunas = `<td>${r.alaLeito}</td><td>${r.quartoLeito}</td><td>${r.numeroLeito}</td><td>${r.observacaoLeito}</td>`;
+    }
+
+    return `
         <tr>
             <td>${r.id}</td>
-            ${tipoAtual === 'exame'
-            ? `<td>${r.nome}</td><td>${r.descricao}</td>`
-            : tipoAtual === 'alergia'
-                ? `<td>${r.nomeAlergia}</td><td>${r.descricaoAlergia}</td>`
-                : `<td>${r.nomeMedico}</td><td>${r.CRM}</td><td>${r.especialidade}</td>`
-        }
+            ${colunas}
             <td class="acoes">
                 <button onclick="editarRegistro(${r.id})">
                     <img src="imagens/editar1.png" alt="simbolo_editar" style="width:18px; height:18px;">
@@ -171,7 +208,8 @@ function atualizarTabela() {
                 </button>
             </td>
         </tr>
-    `).join('');
+    `;
+}).join('');
 
     html += `</tbody></table>`;
     registroContainer.innerHTML = html;
@@ -181,8 +219,8 @@ function atualizarTabela() {
 //  para ser comparado somente com dois == para ele reconhecer somente pelo valor
 //  pois quando ele estaba para comparar por tipo estava dando erro --- preciso
 //  conferir pq estava dando erro e corrigir, porem esta funcionando desta forma
-    function editarRegistro(id) {
-    const registro = registros.find(r => r.id == id); 
+function editarRegistro(id) {
+    const registro = registros.find(r => r.id == id);
     if (!registro) {
         console.error("Registro não encontrado com ID:", id);
         alert("Erro: registro não encontrado.");
